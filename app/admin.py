@@ -6,6 +6,10 @@ from django.contrib.auth.models import User
 
 admin.site.unregister(User)
 
+# class PostInline(admin.TabularInline):
+#     model = Post
+#     extra = 1
+
 class PostInline(admin.StackedInline):
     model = Post
     extra = 1
