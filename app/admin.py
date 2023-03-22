@@ -25,6 +25,15 @@ class PostAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': MDEditorWidget}
     }
+    fieldsets = (
+        (None, {
+            'fields': ('titulo', 'descricao', 'conteudo')
+        }),
+        ('Relacionamentos', {
+            'classes': ('collapse', ),
+            'fields': ('autor', 'tecnologias')
+        }),
+    )
 
 
 admin.site.register(Post, PostAdmin)
