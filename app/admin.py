@@ -34,6 +34,13 @@ class PostAdmin(admin.ModelAdmin):
             'fields': ('autor', 'tecnologias')
         }),
     )
+    list_display = ['descricao', 'titulo',]
+    list_filter = ['titulo', 'tecnologias', ]
+    list_per_page = 1
+    ordering = ['titulo', ]
+    search_fields = ['titulo', 'descricao', ]
+    search_help_text = "Busca de posts por titulo"
+
 
 
 admin.site.register(Post, PostAdmin)
