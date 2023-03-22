@@ -1,6 +1,8 @@
+from django.db import models
 from django.contrib import admin
 from .models import Post, Tecnologia
 from django.contrib.auth.models import User
+from mdeditor.widgets import MDEditorWidget
 
 # Register your models here.
 
@@ -19,6 +21,12 @@ class UserAdmin(admin.ModelAdmin):
     inlines = [PostInline, ]
 
 
-admin.site.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': MDEditorWidget}
+    }
+
+
+admin.site.register(Post, PostAdmin)
 admin.site.register(Tecnologia)
 admin.site.register(User, UserAdmin)
