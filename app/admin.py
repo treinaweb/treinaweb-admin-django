@@ -40,6 +40,7 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ['titulo', ]
     search_fields = ['titulo', 'descricao', ]
     search_help_text = "Busca de posts por titulo"
+    view_on_site = True
 
 
 
